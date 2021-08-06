@@ -3,14 +3,13 @@ const chaiHttp = require("chai-http");
 const should = chai.should();
 
 chai.use(chaiHttp);
-const server = "http://localhost:5000";
 
 let truckId;
 
 describe("/POST create truck", () => {
   it("it should create a truck", (done) => {
     chai
-      .request(server)
+      .request(app)
       .post("/truck/create")
       .send({
         franchiseName: "Listen field Ice Cream Truck",
@@ -27,7 +26,7 @@ describe("/POST create truck", () => {
 describe("/POST newProduct", () => {
   it("it should create a product for the truck.", (done) => {
     chai
-      .request(server)
+      .request(app)
       .post(`/truck/${truckId}/newProduct`)
       .send({
         name: "Lemon Ice Cream",
@@ -44,7 +43,7 @@ describe("/POST newProduct", () => {
 describe("/POST newProduct", () => {
   it("it should create a product for the truck.", (done) => {
     chai
-      .request(server)
+      .request(app)
       .post(`/truck/${truckId}/newProduct`)
       .send({
         name: "Shaved Ice",
@@ -61,7 +60,7 @@ describe("/POST newProduct", () => {
 describe("/POST newProduct", () => {
   it("it should create a product for the truck.", (done) => {
     chai
-      .request(server)
+      .request(app)
       .post(`/truck/${truckId}/newProduct`)
       .send({
         name: "Snack Bar",
@@ -78,7 +77,7 @@ describe("/POST newProduct", () => {
 describe("/POST buyProduct", () => {
   it("it should create a product for the truck.", (done) => {
     chai
-      .request(server)
+      .request(app)
       .post(`/truck/${truckId}/buy`)
       .send({
         productName: "Lemon Ice Cream",
@@ -94,7 +93,7 @@ describe("/POST buyProduct", () => {
 describe("/GET inventory", () => {
   it("it should access a truck's inventory.", (done) => {
     chai
-      .request(server)
+      .request(app)
       .get(`/truck/${truckId}`)
       .end((err, res) => {
         res.should.have.status(200);

@@ -4,8 +4,8 @@
   "description": "Listenfield Exercise",
   "main": "server.js",
   "scripts": {
-    "test": "mocha",
-    "start": "node server.js",
+    "test": "mocha --recursive --exit",
+    "start": "node -r dotenv/config server.js",
     "dev": "nodemon -r dotenv/config server.js"
   },
   "author": "parK-dev",
