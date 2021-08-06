@@ -1,9 +1,9 @@
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const should = chai.should();
-
 chai.use(chaiHttp);
 
+const app = "http://localhost:5000";
 let truckId;
 
 describe("/POST create truck", () => {
@@ -75,7 +75,7 @@ describe("/POST newProduct", () => {
 });
 
 describe("/POST buyProduct", () => {
-  it("it should create a product for the truck.", (done) => {
+  it("it should buy a product from the truck.", (done) => {
     chai
       .request(app)
       .post(`/truck/${truckId}/buy`)

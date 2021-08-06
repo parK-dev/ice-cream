@@ -31,6 +31,7 @@ const connectDB = async () => {
       useFindAndModify: true,
       useCreateIndex: true,
     });
+    console.log("Connected to MongoDB");
   } catch (error) {
     throw new Error(error);
   }
@@ -41,3 +42,5 @@ connectDB();
 const listener = app.listen(process.env.PORT || 5000, () => {
   console.log(`Your app is listening on port ${listener.address().port}`);
 });
+
+module.exports = listener;
